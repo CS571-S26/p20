@@ -1,7 +1,11 @@
 /**
  * Mock restaurant data for MadisonEats.
  * Local data only — no external API.
+ * Photos: Unsplash (free to use; https://unsplash.com/license).
  */
+
+const unsplash = (photoPath) =>
+  `https://images.unsplash.com/${photoPath}?auto=format&fit=crop&w=800&h=600&q=80`
 
 export const restaurants = [
   {
@@ -10,7 +14,7 @@ export const restaurants = [
     cuisine: 'American',
     price: '$$',
     rating: 4.2,
-    image: 'https://placehold.co/400x300?text=State+Street+Brats',
+    image: unsplash('photo-1555939594-58d7cb561ad1'),
     address: '603 State St, Madison, WI 53703',
     hours: 'Mon–Sun 11am–2am',
     description: 'Classic Madison spot for bratwurst, burgers, and pub fare right on State Street. Great for game day and late-night bites.',
@@ -21,7 +25,7 @@ export const restaurants = [
     cuisine: 'Italian',
     price: '$$$',
     rating: 4.6,
-    image: 'https://placehold.co/400x300?text=Lombardinos',
+    image: unsplash('photo-1621996346565-e3dbc646d9a9'),
     address: '2500 University Ave, Madison, WI 53705',
     hours: 'Tue–Thu 5pm–9pm, Fri–Sat 5pm–10pm, Sun 4pm–9pm',
     description: 'Upscale Italian in a cozy setting. House-made pasta, wood-fired pizzas, and a solid wine list.',
@@ -32,7 +36,7 @@ export const restaurants = [
     cuisine: 'Vietnamese / Thai',
     price: '$$',
     rating: 4.5,
-    image: 'https://placehold.co/400x300?text=Ha+Long+Bay',
+    image: unsplash('photo-1591814468924-caf88d1232e1'),
     address: '1353 Williamson St, Madison, WI 53703',
     hours: 'Mon–Thu 11am–9pm, Fri–Sat 11am–9:30pm, Sun 12pm–8pm',
     description: 'Noodle soups, pho, and Southeast Asian dishes in a casual Willy Street storefront.',
@@ -43,7 +47,7 @@ export const restaurants = [
     cuisine: 'American',
     price: '$$',
     rating: 4.4,
-    image: 'https://placehold.co/400x300?text=The+Old+Fashioned',
+    image: unsplash('photo-1568901346375-23c9450c58cd'),
     address: '23 N Pinckney St, Madison, WI 53703',
     hours: 'Mon–Sun 11am–12am',
     description: 'Wisconsin comfort food and cheese curds near the Capitol. Known for burgers, fish fry, and a huge beer list.',
@@ -54,7 +58,7 @@ export const restaurants = [
     cuisine: 'Mediterranean',
     price: '$',
     rating: 4.3,
-    image: 'https://placehold.co/400x300?text=Banzo',
+    image: unsplash('photo-1504674900247-0877df9cc836'),
     address: '411 W Gilman St, Madison, WI 53703',
     hours: 'Mon–Sat 11am–8pm, Sun 12pm–6pm',
     description: 'Fast, fresh falafel, shawarma, and hummus bowls. A campus and downtown favorite for a quick, healthy meal.',
@@ -65,7 +69,7 @@ export const restaurants = [
     cuisine: 'Japanese',
     price: '$$$',
     rating: 4.7,
-    image: 'https://placehold.co/400x300?text=Muramoto',
+    image: unsplash('photo-1579584425555-c3ce17fd4351'),
     address: '106 King St, Madison, WI 53703',
     hours: 'Tue–Thu 5pm–9:30pm, Fri–Sat 5pm–10:30pm',
     description: 'Sushi and Japanese small plates in a sleek downtown space. Reservations recommended.',
@@ -76,7 +80,7 @@ export const restaurants = [
     cuisine: 'American / Diner',
     price: '$$',
     rating: 4.1,
-    image: 'https://placehold.co/400x300?text=Montys+Blue+Plate',
+    image: unsplash('photo-1525351484163-7529414344d8'),
     address: '2089 Atwood Ave, Madison, WI 53704',
     hours: 'Mon–Sun 8am–9pm',
     description: 'Retro diner with breakfast all day, burgers, and comfort classics. Popular for brunch on the east side.',
@@ -87,7 +91,7 @@ export const restaurants = [
     cuisine: 'Nepalese',
     price: '$$',
     rating: 4.5,
-    image: 'https://placehold.co/400x300?text=Himal+Chuli',
+    image: unsplash('photo-1585937421612-70a008356fbe'),
     address: '318 State St, Madison, WI 53703',
     hours: 'Mon–Sat 11am–9pm, Sun 12pm–8pm',
     description: 'Nepalese and Himalayan dishes: momos, curries, and lentil soups. Vegetarian-friendly and family-run.',
@@ -98,7 +102,7 @@ export const restaurants = [
     cuisine: 'American',
     price: '$$$',
     rating: 4.4,
-    image: 'https://placehold.co/400x300?text=Graze',
+    image: unsplash('photo-1512621776951-a57141f2eefd'),
     address: '1 S Pinckney St, Madison, WI 53703',
     hours: 'Mon–Thu 11am–10pm, Fri–Sat 11am–11pm, Sun 10am–9pm',
     description: 'Farm-to-table American with a view of the Capitol. Salads, burgers, and seasonal specials.',
@@ -109,7 +113,7 @@ export const restaurants = [
     cuisine: 'Italian / Pizza',
     price: '$$',
     rating: 4.6,
-    image: 'https://placehold.co/400x300?text=Salvatores',
+    image: unsplash('photo-1513104890138-7c749659a591'),
     address: '912 E Johnson St, Madison, WI 53703',
     hours: 'Tue–Sun 4pm–9pm',
     description: 'Thin-crust tomato pies and Italian plates in a small, bustling space. Order ahead for takeout.',

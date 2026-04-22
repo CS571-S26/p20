@@ -16,8 +16,8 @@ function RestaurantFilters({
   }
 
   return (
-    <Card className="p-3 mb-4">
-      <Card.Title as="h5" className="mb-3">
+    <Card className="filter-panel p-3 mb-4 border-0 shadow-sm">
+      <Card.Title as="h5" className="mb-3 page-title h6">
         Search &amp; filters
       </Card.Title>
 

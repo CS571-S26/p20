@@ -1,4 +1,10 @@
-import { useState, useCallback } from 'react'
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react'
 
 const STORAGE_KEY = 'madison-eats-favorites'
 
@@ -20,11 +26,9 @@ function saveIds(ids) {
   }
 }
 
-/**
- * Hook for favorites persisted in localStorage.
- * Returns favoriteIds, isFavorite(id), and toggleFavorite(restaurant).
- */
-export function useFavorites() {
+const FavoritesContext = createContext(null)
+
+export function FavoritesProvider({ children }) {
   const [favoriteIds, setFavoriteIds] = useState(getStoredIds)
 
   const isFavorite = useCallback(
@@ -44,5 +48,22 @@ export function useFavorites() {
     })
   }, [])
 
-  return { favoriteIds, isFavorite, toggleFavorite }
+  const value = useMemo(
+    () => ({ favoriteIds, isFavorite, toggleFavorite }),
+    [favoriteIds, isFavorite, toggleFavorite]
+  )
+
+  return (
+    <FavoritesContext.Provider value={value}>
+      {children}
+    </FavoritesContext.Provider>
+  )
+}
+
+export function useFavorites() {
+  const ctx = useContext(FavoritesContext)
+  if (!ctx) {
+    throw new Error('useFavorites must be used inside FavoritesProvider')
+  }
+  return ctx
 }

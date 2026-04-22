@@ -2,17 +2,182 @@
   box-sizing: border-box;
 }
 
+:root {
+  --me-bg: #f4f6f4;
+  --me-surface: #ffffff;
+  --me-accent: #2d6a4f;
+  --me-accent-hover: #1b4332;
+  --me-text: #1a1a1a;
+  --me-muted: #5c6f64;
+  --bs-primary: #2d6a4f;
+  --bs-primary-rgb: 45, 106, 79;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
   line-height: 1.5;
+  color: var(--me-text);
+  background-color: var(--me-bg);
 }
 
 #root {
   min-height: 100vh;
 }
 
-/* Optional: subtle spacing for nav links */
-.navbar .nav-link.active {
+.app-main {
+  background: linear-gradient(
+    180deg,
+    var(--me-bg) 0%,
+    #eef1ee 100%
+  );
+}
+
+.navbar-me {
+  background-color: var(--me-surface) !important;
+  border-bottom: 1px solid rgba(27, 67, 50, 0.12);
+}
+
+.navbar-me .navbar-brand {
+  color: var(--me-accent) !important;
+}
+
+.navbar-me .nav-link {
+  color: var(--me-muted) !important;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.navbar-me .nav-link:hover {
+  color: var(--me-accent) !important;
+  background-color: rgba(45, 106, 79, 0.08);
+}
+
+.navbar-me .nav-link.active {
+  color: var(--me-accent) !important;
   font-weight: 600;
+  background-color: rgba(45, 106, 79, 0.12);
+}
+
+.me-nav-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.app-footer {
+  background-color: var(--me-surface);
+  border-top: 1px solid rgba(27, 67, 50, 0.1);
+}
+
+.filter-panel {
+  background-color: var(--me-surface);
+  border-radius: 0.75rem !important;
+}
+
+.page-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--me-accent-hover);
+}
+
+.page-lead {
+  color: var(--me-muted);
+  max-width: 36rem;
+}
+
+.about-page .filter-panel {
+  max-width: 40rem;
+}
+
+.about-body p {
+  line-height: 1.65;
+  color: var(--me-text);
+}
+
+.restaurant-card {
+  border-radius: 0.75rem !important;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background-color: var(--me-surface);
+}
+
+.restaurant-card__body {
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.restaurant-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--me-text);
+  line-height: 1.35;
+}
+
+.restaurant-card__rating {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--me-accent);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: rgba(45, 106, 79, 0.1);
+}
+
+.restaurant-card__meta {
+  font-size: 0.875rem;
+  color: var(--me-muted);
+  margin-bottom: 0;
+}
+
+.restaurant-card__your-rating {
+  color: var(--me-muted);
+}
+
+.restaurant-card__btn {
+  font-weight: 500;
+}
+
+.restaurant-card .btn-outline-secondary {
+  color: var(--me-muted);
+  border-color: rgba(27, 67, 50, 0.2);
+}
+
+.restaurant-card .btn-outline-secondary:hover {
+  color: var(--me-accent-hover);
+  border-color: rgba(27, 67, 50, 0.35);
+  background-color: rgba(27, 67, 50, 0.06);
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 0.5rem 1.5rem rgba(27, 67, 50, 0.12) !important;
+  transform: translateY(-2px);
+}
+
+.restaurant-card .card-img-top {
+  transition: transform 0.35s ease;
+}
+
+.restaurant-card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.empty-state-card {
+  background-color: var(--me-surface);
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(27, 67, 50, 0.2);
+}
+
+.modal-header {
+  border-bottom-color: rgba(27, 67, 50, 0.1) !important;
+}
+
+.detail-pill {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.375rem;
+}
+
+.detail-pill--muted {
+  color: var(--me-muted);
+  background-color: rgba(27, 67, 50, 0.08);
 }

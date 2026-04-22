@@ -4,7 +4,7 @@ import { Row, Col, Button } from 'react-bootstrap'
 import { restaurants } from '../data/restaurants'
 import RestaurantCard from '../components/RestaurantCard'
 import RestaurantDetailsModal from '../components/RestaurantDetailsModal'
-import { useFavorites } from '../utils/useFavorites'
+import { useFavorites } from '../context/FavoritesContext'
 
 function Favorites() {
   const { favoriteIds, isFavorite, toggleFavorite } = useFavorites()
@@ -17,11 +17,11 @@ function Favorites() {
 
   if (favoriteRestaurants.length === 0) {
     return (
-      <div className="text-center py-5">
-        <h1 className="mb-4">Favorites</h1>
-        <p className="text-muted lead mb-2">No favorites yet</p>
-        <p className="text-muted mb-4">
-          Browse restaurants on the Home page and click the heart to save your favorites here.
+      <div className="empty-state-card text-center py-5 px-3">
+        <h1 className="page-title mb-3">Favorites</h1>
+        <p className="text-muted mb-2 fw-semibold">No favorites yet</p>
+        <p className="text-muted small mb-4">
+          On Home, tap <strong>Save</strong> on any card to add it here.
         </p>
         <Button as={Link} to="/" variant="primary">
           Discover restaurants
@@ -36,11 +36,18 @@ function Favorites() {
         show={!!selectedRestaurant}
         restaurant={selectedRestaurant}
         onHide={() => setSelectedRestaurant(null)}
+        isFavorite={
+          selectedRestaurant ? isFavorite(selectedRestaurant.id) : false
+        }
+        onToggleFavorite={toggleFavorite}
       />
-      <h1 className="mb-4">Favorites</h1>
-      <p className="text-muted mb-4">
-        {favoriteRestaurants.length} {favoriteRestaurants.length === 1 ? 'restaurant' : 'restaurants'} saved
-      </p>
+      <header className="mb-4">
+        <h1 className="page-title mb-2">Favorites</h1>
+        <p className="text-muted small mb-0">
+          {favoriteRestaurants.length}{' '}
+          {favoriteRestaurants.length === 1 ? 'restaurant' : 'restaurants'} saved
+        </p>
+      </header>
       <Row xs={1} md={2} lg={3} className="g-4">
         {favoriteRestaurants.map((restaurant) => (
           <Col key={restaurant.id}>
